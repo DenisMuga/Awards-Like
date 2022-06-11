@@ -82,6 +82,11 @@ class Rating(models.Model):
     
     def save_rating(self):
         self.save()
+        
+    @classmethod
+    def get_ratings(cls, id):
+        ratings = Rating.objects.filter(post_id=id).all()
+        return ratings
     
     def __str__(self):
         return f'{self.post} Rating'
