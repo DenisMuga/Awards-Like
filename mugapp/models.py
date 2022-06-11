@@ -51,6 +51,9 @@ class Post(models.Model):
     @classmethod
     def all_posts(cls):
         return cls.objects.all()
+    
+    def save_post(self):
+        self.save()
 
 
 
