@@ -40,5 +40,9 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+    
+    def delete_post(self):
+        self.delete()
+
 
 
