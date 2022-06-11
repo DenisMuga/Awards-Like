@@ -87,8 +87,10 @@ WSGI_APPLICATION = 'dawards.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tuzo',
+        'USER': 'denis',
+        'PASSWORD': 'denis1234',
     }
 }
 
@@ -127,9 +129,33 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+cloudinary.config( 
+  cloud_name=config('CLOUD_NAME'),
+  api_key=config('API_KEY'),
+  api_secret=config('API_SECRET')   
+)
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
+EMAIL_USE_TLS=config('EMAIL_USE_TLS', cast=bool)  
+EMAIL_HOST=config('EMAIL_HOST')  
+EMAIL_HOST_USER=config('EMAIL_HOST_USER')  
+EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')  
+EMAIL_PORT=config('EMAIL_PORT',cast=int)
+
+django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
