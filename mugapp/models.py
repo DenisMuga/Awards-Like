@@ -80,6 +80,9 @@ class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='rater')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='ratings', null=True)
     
+    def save_rating(self):
+        self.save()
+    
     def __str__(self):
         return f'{self.post} Rating'
 
