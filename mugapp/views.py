@@ -120,3 +120,5 @@ def project(request, post):
     return render(request, 'mugapp/project.html', params)
 
 
+
+
