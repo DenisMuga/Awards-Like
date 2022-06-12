@@ -31,7 +31,7 @@ An app similar to Awwards, this app allows users to post projects and get it rev
 - Install Python version
 - Clone the repository or fork the repo
 - git clone (`https://github.com/DenisMuga/Awards-Like.git`)
-- cd awwwards37
+- cd dmAwards
 - install packages(`pip install -r requirements.txt`)
 - Run Server (`Python3 mange.py runserver`)
 
