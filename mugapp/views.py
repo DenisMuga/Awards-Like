@@ -11,7 +11,7 @@ import random
 
 # Create your views here.
 
-def index(request):
+def home(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -29,4 +29,4 @@ def index(request):
         print(random_post.photo)
     except Post.DoesNotExist:
         posts = None
-    return render(request, 'index.html', {'posts': posts, 'form': form, 'random_post': random_post})
+    return render(request, 'mugapp/index.html', {'posts': posts, 'form': form, 'random_post': random_post})
