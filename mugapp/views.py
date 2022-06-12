@@ -47,3 +47,12 @@ def signup(request):
 
 def profile(request, username):
     return render(request, 'mugapp/profile.html')
+
+def user_profile(request, username):
+    user_prof = get_object_or_404(User, username=username)
+    if request.user == user_prof:
+        return redirect('profile', username=request.user.username)
+    params = {
+        'user_prof': user_prof,
+    }
+    return render(request, 'mugapp/userprofile.html', params)
