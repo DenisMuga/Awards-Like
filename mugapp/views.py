@@ -45,6 +45,7 @@ def signup(request):
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+@login_required(login_url='login')
 def profile(request, username):
     return render(request, 'mugapp/profile.html')
 
@@ -57,6 +58,7 @@ def user_profile(request, username):
     }
     return render(request, 'mugapp/userprofile.html', params)
 
+@login_required(login_url='login')
 def edit_profile(request, username):
     user = User.objects.get(username=username)
     if request.method == 'POST':
@@ -75,6 +77,7 @@ def edit_profile(request, username):
     }
     return render(request, 'mugapp/update_profile.html', context)
 
+@login_required(login_url='login')
 def project(request, post):
     post = Post.objects.filter(title=post).first()
     ratings = Rating.objects.filter(user=request.user, post=post).first()
