@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4(%7ew5ua87+)8owiekoo5u&%=-b4nz^fw21vfp%2li4wh(l1_'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,8 +88,8 @@ WSGI_APPLICATION = 'dawards.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tuzo',
-        'USER': 'denis',
+        'NAME': 'awards',
+        'USER': 'moringa',
         'PASSWORD': 'denis1234',
     }
 }
@@ -132,7 +132,7 @@ USE_TZ = True
 cloudinary.config( 
   cloud_name=config('CLOUD_NAME'),
   api_key=config('API_KEY'),
-  api_secret=config('API_SECRET')   
+  api_secret=config('API_SECRET')  
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -150,10 +150,10 @@ STATICFILES_DIRS = [
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
-EMAIL_USE_TLS=config('EMAIL_USE_TLS', cast=bool)  
-EMAIL_HOST=config('EMAIL_HOST')  
-EMAIL_HOST_USER=config('EMAIL_HOST_USER')  
-EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')  
+EMAIL_USE_TLS=config('EMAIL_USE_TLS', cast=bool) 
+EMAIL_HOST=config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER=config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT=config('EMAIL_PORT',cast=int)
 
 django_heroku.settings(locals())
