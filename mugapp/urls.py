@@ -12,6 +12,7 @@ urlpatterns = [
     path('<username>/profile/', views.user_profile, name='userprofile'),
     path('profile/<username>/', views.profile, name='profile'),
     path('profile/<username>/settings', views.edit_profile, name='edit'),
+    path('project/<post>/', views.project, name='project'),
     
     
 ]
