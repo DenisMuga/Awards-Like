@@ -19,4 +19,4 @@ urlpatterns = [
     path('search/', views.search_project, name='search'),
     
     
-]
+]   
