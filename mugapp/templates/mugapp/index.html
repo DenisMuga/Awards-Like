@@ -150,8 +150,8 @@
                             </a>
                         </div>
                         <div class="card-body ">
-                        <a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
-                                    class= "btn-sm btn-info rounded-pill" href="{{ post.url }}" style=""> View</a>
+                        <a class="text-danger"href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
+                                    class= "btn-sm btn-dark rounded-pill text-white ms-5 " href="{{ post.url }}" style=""> View</a>
                             <hr>
                             <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}"
                                                        class="nav-img mr-2"
