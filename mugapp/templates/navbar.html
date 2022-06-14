@@ -14,21 +14,22 @@
             <form class="form-inline text-dark mt-2" method="get" action="{% url 'search' %}">
                 {% csrf_token %}
                 <div class="md-form my-0">
-                    <input class="form-control mr-sm-2 text-dark  rounded-pill px-2" type="text" placeholder="Search" name="title" aria-label="Search" style="border: 1px solid black;">
+                    <input class="form-control mr-sm-2 text-white bg-dark rounded-pill px-2" type="text" placeholder="Search" name="title" aria-label="Search" style="border: 1px solid black;">
                 </div>
             </form>
           </li>
-            <li class="nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="#" style="font-size: 3em;">dmAwards</a>
-            </li>
 
-            {%if request.user.is_authenticated%}
+          <li class="nav-item">
+            <a class="nav-link active text-dark font-weight-bold" aria-current="page" href="#" style="font-size: 3em;">dmAwards</a>
+          </li>
+
+
+          {%if request.user.is_authenticated%}
 
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white bg-dark" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                 aria-haspopup="true"
-                 aria-expanded="false">APIS
-              </a>
+              <a class="nav-link dropdown-toggle mt-3 text-white bg-dark font-weigth-bold" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">APIS</a>
+              
               <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item text-center text-white bg-dark" href="api/users/">Users</a>
                   <hr>
@@ -39,6 +40,9 @@
   
               </div>
           </li >
+            
+
+           
 
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -48,11 +52,11 @@
                                                                       alt="">
               </a>
               <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item text-center" href="{% url 'profile' user.username %}">Profile</a>
+                  <a class="dropdown-item text-center text-white bg-dark" href="{% url 'profile' user.username %}">Profile</a>
                   <hr>
-                  <a class="dropdown-item text-center" href="{% url 'edit' user.username  %}"> Update profile</a>
+                  <a class="dropdown-item text-center text-white bg-dark" href="{% url 'edit' user.username  %}"> Update profile</a>
                   <hr>
-                  <a href="{% url 'logout' %}" class="text-secondary text-center dropdown-item">Log Out</a>
+                  <a href="{% url 'logout' %}" class="text-secondary text-center dropdown-item text-white bg-dark">Log Out</a>
   
   
               </div>
