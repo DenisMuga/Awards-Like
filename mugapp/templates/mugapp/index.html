@@ -78,7 +78,7 @@
                             <div class="box-breadcrumb">
                                 <div class="box-left">
                                     <strong class="parent">
-                                        <a href="{% url 'project' random_post.title %}">Trending Site</a>
+                                        <a href="{% url 'project' random_post.title %}">Site of the Day</a>
                                     </strong>
                                     <span class="text-x-thin">{{random_post.date|date}}</span>
                                 </div>
@@ -98,7 +98,7 @@
     </div>
 
     <div class="container">
-        <h2 class="mt-4">Projects showing now</h2>
+        <h2 class="mt-4">Sites of the day <span class="font-weight-light">Previous Winners</span></h2>
         {% if user.is_authenticated %}
         <div class="modal fade bd-example-modal-xl" id="ModalCenter" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalCenterTitle"
