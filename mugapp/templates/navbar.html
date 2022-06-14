@@ -21,8 +21,25 @@
             <li class="nav-item">
               <a class="nav-link active text-dark" aria-current="page" href="#" style="font-size: 3em;">dmAwards</a>
             </li>
-         
-          {%if request.user.is_authenticated%}
+
+            {%if request.user.is_authenticated%}
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">APIS
+              </a>
+              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item text-center" href="api/users/">Users</a>
+                  <hr>
+                  <a class="dropdown-item text-center" href="api/posts/"> Posts</a>
+                  <hr>
+                  <a href="api/profile/" class="text-secondary text-center dropdown-item">Profiles</a>
+  
+  
+              </div>
+          </li >
+          
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownMenuLink" data-toggle="dropdown"
                  aria-haspopup="true"
